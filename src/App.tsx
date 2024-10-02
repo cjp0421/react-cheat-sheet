@@ -8,7 +8,6 @@ function App() {
   return (
     <Router>
       <Layout>
-        <h1>Hiya</h1>
         <AppRoutes />
       </Layout>
     </Router>
