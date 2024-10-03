@@ -25,6 +25,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     <Typography><Link to="/event-handling">Event Handling</Link></Typography>
                     <Typography><Link to="/hooks">Hooks</Link></Typography>
                     <Typography><Link to="/state-management">State Management</Link></Typography>
+                    <Typography><Link to="/rendering-data">Rendering Data</Link></Typography>
                 </Box>
             </Drawer>
 

@@ -11,6 +11,8 @@ const HomePage: React.FC = () => {
             <Typography variant='h1' gutterBottom sx={{ p: 2, fontSize: 48 }}>
                 Welcome to my React + TypeScript Cheat Sheet!
             </Typography>
+            <Typography variant='h4' gutterBottom sx={{ p: 2 }}>Learn About Rendering Data!</Typography>
+            <Button onClick={() => navigate('/rendering-data')}>Go to Rendering Data</Button>
             <Typography variant='h4' gutterBottom sx={{ p: 2 }}>
                 Learn About Event Handling!
             </Typography>
