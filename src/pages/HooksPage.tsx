@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-// import CustomModal from '../components/CustomModal'
+// import ModalTemplate from '../components/ModalTemplate'
 // import CustomDropdown from '../components/CustomDropdown'
 
 const HooksPage: React.FC = () => {

@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-// import CustomModal from '../components/CustomModal'
+// import ModalTemplate from '../components/ModalTemplate'
 // import CustomDropdown from '../components/CustomDropdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'

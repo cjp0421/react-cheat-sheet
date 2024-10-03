@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-// import CustomModal from '../components/CustomModal'
+// import ModalTemplate from '../components/ModalTemplate'
 // import CustomDropdown from '../components/CustomDropdown'
 
 const HomePage: React.FC = () => {
