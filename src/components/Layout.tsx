@@ -20,12 +20,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' }
             }}>
                 <Toolbar />
-                <Box sx={{ width: drawerWidth, overflow: 'auto' }}>
+                <Box sx={{ width: drawerWidth, overflow: 'auto', pl: 1 }}>
                     <Typography><Link to="/">Home</Link></Typography>
+                    <Typography><Link to="/rendering-data">Rendering Data</Link></Typography>
                     <Typography><Link to="/event-handling">Event Handling</Link></Typography>
                     <Typography><Link to="/hooks">Hooks</Link></Typography>
                     <Typography><Link to="/state-management">State Management</Link></Typography>
-                    <Typography><Link to="/rendering-data">Rendering Data</Link></Typography>
+
                 </Box>
             </Drawer>
 
