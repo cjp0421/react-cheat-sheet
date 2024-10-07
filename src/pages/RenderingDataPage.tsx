@@ -4,7 +4,7 @@ import ModalTemplate from '../components/Modal';
 // import CustomDropdown from '../components/CustomDropdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { map, filter } from './../data/codeExamples.json'
+import { map, filter } from './../data/renderingDataExamples.json'
 
 const RenderingDataPage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
@@ -31,11 +31,16 @@ const RenderingDataPage: React.FC = () => {
 
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'map'} title=".map()">
                 <Typography variant="body1">
-                    This modal contains information about the `.map()` function and how it is used in React to transform arrays into lists of elements.
-                </Typography></ModalTemplate>
+                    The .map() function is used to efficiently turn an array of data into an array of JSX components.
+                    In other words, .map() is used to render a group of data in the UI.
+                    It allows you to iterate over an array, apply a transformation, and return a new list of
+                    components to display. It is also commonly used for rendering dynamic content such as
+                    lists, tables, or menus.
+                </Typography>
+            </ModalTemplate>
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'filter'} title=".filter()">
                 <Typography variant="body1">
-                    This modal provides additional information regarding other JavaScript array methods that are useful in React, such as `.filter()` and `.reduce()`.
+                    This modal provides additional information regarding other JavaScript array methods that are useful in React, such as `.filter()`.
                 </Typography></ModalTemplate>
             <Box>
                 <Typography variant='subtitle1' sx={{ pt: 1 }} >
