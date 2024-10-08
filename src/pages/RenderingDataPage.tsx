@@ -112,7 +112,7 @@ const RenderingDataPage: React.FC = () => {
             <SyntaxHighlighter language='jsx' style={materialDark}>
                 {filter.basicFilterAndMapExample}
             </SyntaxHighlighter>
-            <Typography>
+            <Typography variant='subtitle1' sx={{ pt: 1 }}>
                 .filter() and .map() with TypeScript
             </Typography>
             <SyntaxHighlighter language='jsx' style={materialDark}>
