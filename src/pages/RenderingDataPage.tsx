@@ -90,6 +90,12 @@ const RenderingDataPage: React.FC = () => {
             <SyntaxHighlighter language='jsx' style={materialDark}>
                 {filter.basicFilterAndMapExample}
             </SyntaxHighlighter>
+            <Typography>
+                .filter() and .map() with TypeScript
+            </Typography>
+            <SyntaxHighlighter language='jsx' style={materialDark}>
+                {filter.typescriptFilterAndMapExample}
+            </SyntaxHighlighter>
         </Box >
     )
 }
