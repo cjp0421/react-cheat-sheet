@@ -1,4 +1,5 @@
-import { AppBar, Box, Drawer, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Drawer, IconButton, Toolbar, Typography, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -8,6 +9,8 @@ const drawerWidth = 200;
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
 
     const handleDrawerToggle = () => {
         setIsDrawerOpen(!isDrawerOpen)
@@ -17,7 +20,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Box sx={{ display: 'flex' }}>
             <AppBar position='fixed' sx={{ transition: 'width 0.3s', width: isDrawerOpen ? `calc(100% - ${drawerWidth}px)` : '100%', ml: `${drawerWidth}px` }}>
                 <Toolbar>
-                    <IconButton
+                    {isSmallScreen && isDrawerOpen ? null : <IconButton
                         color="inherit"
                         aria-label="open drawer"
                         edge="start"
@@ -25,7 +28,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         sx={{ mr: 2 }}
                     >
                         <MenuIcon />
-                    </IconButton>
+                    </IconButton>}
                     <Typography variant='h4'>
                         React + TypeScript
                     </Typography>
@@ -33,8 +36,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </AppBar>
 
             <Drawer
-                variant='persistent'
+                variant={isSmallScreen ? 'temporary' : 'persistent'}
                 open={isDrawerOpen}
+                onClose={handleDrawerToggle}
                 sx={{
                     width: drawerWidth,
                     flexShrink: 0,
@@ -52,8 +56,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 </Box>
             </Drawer>
 
-            <Box component='main' sx={{ flexGrow: 1, width: `calc(100% - ${drawerWidth}px)` }}>
-                {children || <Typography>Choose a topic to the left to learn more!</Typography>}
+            <Box component='main'
+                sx={{
+                    flexGrow: 1,
+                    width: `calc(100% - ${drawerWidth}px)`
+                }}>
+                {children}
             </Box>
 
         </Box>

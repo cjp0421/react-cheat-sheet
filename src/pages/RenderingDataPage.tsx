@@ -21,7 +21,7 @@ const RenderingDataPage: React.FC = () => {
     }
 
     return (
-        <Box sx={{ p: 1, pt: 11, maxWidth: '80vw', display: 'flex', flexDirection: 'column' }}>
+        <Box sx={{ p: 1, pt: 11, maxWidth: `${isSmallScreen ? '97vw' : '80vw'}`, display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                 <Typography variant='h4' gutterBottom sx={{ width: '45vw' }}>
                     Rendering Data
