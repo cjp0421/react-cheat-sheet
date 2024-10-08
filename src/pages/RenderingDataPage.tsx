@@ -21,17 +21,35 @@ const RenderingDataPage: React.FC = () => {
     }
 
     return (
-        <Box sx={{ p: 1, pt: 11, maxWidth: `${isSmallScreen ? '97vw' : '80vw'}`, display: 'flex', flexDirection: 'column' }}>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+        <Box
+            sx={{
+                p: 1,
+                pt: 11,
+                maxWidth: `${isSmallScreen ? '97vw' : '80vw'}`,
+                display: 'flex',
+                flexDirection: 'column',
+                transition: 'max-width 0.3s'
+            }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-around',
+                    width: '100%',
+                    alignItems: 'center'
+                }}>
                 <Typography variant='h4' gutterBottom sx={{ width: '45vw' }}>
                     Rendering Data
                 </Typography>
-                <Box>
+                <Box sx={{ display: 'block' }}>
                     <Fab
                         variant='extended'
                         size="medium"
                         color='secondary'
-                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 1, marginBottom: '10px' }}
+                        sx={{
+                            width: `${isSmallScreen ? '15vw' : '25vw'}`,
+                            p: 3,
+                            marginBottom: '10px'
+                        }}
                         onClick={() => handleOpen('map')}
                     >
                         {isSmallScreen ? '.map()' : 'Learn More About .map()'}
@@ -41,7 +59,7 @@ const RenderingDataPage: React.FC = () => {
                         variant='extended'
                         size="medium"
                         color='success'
-                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 1 }}
+                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 3 }}
                         onClick={() => handleOpen('filter')}
                     >
                         {isSmallScreen ? '.filter()' : 'Learn More About .filter()'}
@@ -51,7 +69,7 @@ const RenderingDataPage: React.FC = () => {
 
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'map'} title=".map()">
                 <Typography variant="body1">
-                    The .map() function is used to efficiently turn an array of data into an array of JSX components.
+                    The .map() method is used to efficiently turn an array of data into an array of JSX components.
                     In other words, .map() is used to render a group of data in the UI.
                     It allows you to iterate over an array, apply a transformation, and return a new list of
                     components to display. It is also commonly used for rendering dynamic content such as
@@ -60,7 +78,11 @@ const RenderingDataPage: React.FC = () => {
             </ModalTemplate>
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'filter'} title=".filter()">
                 <Typography variant="body1">
-                    This modal provides additional information regarding other JavaScript array methods that are useful in React, such as `.filter()`.
+                    The .filter() method is used to create a new array by conditionally selecting elements from an
+                    exisiting array, based on a provided condition or test. It is commonly used to render a subset of data
+                    in the UI by filtering items that meet specific criteria. The .filter() method is often combined with
+                    the .map() method to dynamically display filtered lists of components, such as search results
+                    or filtered lists in tables or menus.
                 </Typography></ModalTemplate>
             <Box>
                 <Typography variant='subtitle1' sx={{ pt: 1 }} >
