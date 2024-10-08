@@ -1,4 +1,5 @@
-import { Box, Typography, Fab } from '@mui/material';
+import { Box, Typography, Fab, useMediaQuery } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
 import ModalTemplate from '../components/Modal';
 // import CustomDropdown from '../components/CustomDropdown'
@@ -8,6 +9,8 @@ import { map, filter } from './../data/renderingDataExamples.json'
 
 const RenderingDataPage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
     const handleOpen = (modal: string) => {
         setIsModalOpen(modal);
@@ -18,14 +21,31 @@ const RenderingDataPage: React.FC = () => {
     }
 
     return (
-        <Box sx={{ p: 1, pt: 11, maxWidth: '70vw', display: 'flex', flexDirection: 'column', alignItems: "center" }}>
+        <Box sx={{ p: 1, pt: 11, maxWidth: '80vw', display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
                 <Typography variant='h4' gutterBottom sx={{ width: '45vw' }}>
                     Rendering Data
                 </Typography>
                 <Box>
-                    <Fab variant='extended' size="medium" color='secondary' sx={{ width: '25vw', p: 1, marginBottom: '10px' }} onClick={() => handleOpen('map')}>Learn More About .map()</Fab>
-                    <Fab variant='extended' size="medium" color='success' sx={{ width: '25vw', p: 1 }} onClick={() => handleOpen('filter')}>Learn More About .filter()</Fab>
+                    <Fab
+                        variant='extended'
+                        size="medium"
+                        color='secondary'
+                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 1, marginBottom: '10px' }}
+                        onClick={() => handleOpen('map')}
+                    >
+                        {isSmallScreen ? '.map()' : 'Learn More About .map()'}
+                    </Fab>
+                    <br />
+                    <Fab
+                        variant='extended'
+                        size="medium"
+                        color='success'
+                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 1 }}
+                        onClick={() => handleOpen('filter')}
+                    >
+                        {isSmallScreen ? '.filter()' : 'Learn More About .filter()'}
+                    </Fab>
                 </Box>
             </Box>
 
