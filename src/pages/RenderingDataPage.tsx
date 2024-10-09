@@ -83,7 +83,8 @@ const RenderingDataPage: React.FC = () => {
                     in the UI by filtering items that meet specific criteria. The .filter() method is often combined with
                     the .map() method to dynamically display filtered lists of components, such as search results
                     or filtered lists in tables or menus.
-                </Typography></ModalTemplate>
+                </Typography>
+            </ModalTemplate>
             <Box>
                 <Typography variant='subtitle1' sx={{ pt: 1 }} >
                     .map()

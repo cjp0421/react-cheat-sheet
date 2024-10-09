@@ -1,33 +1,15 @@
-import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Fab, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-// import ModalTemplate from '../components/ModalTemplate'
+import ModalTemplate from './../components/Modal'
 // import CustomDropdown from '../components/CustomDropdown'
+import { simpleOnClickExample, onClickExampleWithHandlerTypeScript } from './../data/eventHandlingExamples';
+import { useState } from 'react';
 
 const EventHandlingPage: React.FC = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
-    const simpleOnClickExample = `
-    <button onClick={() => alert('Auto Destruct Activated!')}>
-        Don't Click Me!
-</button>
-    `;
-
-    const onClickExampleWithHandlerTypeScript = `
-    const AutoDestruct: React.FC = () => {
-        const handleDoomClick = (): void => {
-            alert('Auto Destruct Activated!');
-        }
-    
-        return (
-            <button onClick={handleDoomClick}>
-                Don't Click Me!
-            </button>
-        );
-    };
-    
-    export default AutoDestruct;
-    `;
 
     return (
         <Box sx={{
@@ -38,11 +20,26 @@ const EventHandlingPage: React.FC = () => {
             flexDirection: 'column',
             transition: 'max-width 0.3s'
         }}>
-            <Box>
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'space-around'
+                }}
+            >
                 <Typography variant='h4' gutterBottom>
                     Event Handling
                 </Typography>
+                <Fab
+                    variant='extended'
+                    color='secondary'
+                    onClick={() => setIsModalOpen(true)}
+                >Learn About the Event Object</Fab>
             </Box>
+            <ModalTemplate onClose={() => setIsModalOpen(false)} open={isModalOpen} title='The Event Object'>
+                More about the event object:
+                If your function doesn't need to access the properties on the event object then you
+                don't need to pass the event object as a parameter to your event handler.
+            </ModalTemplate>
             <Box>
                 <Typography variant='subtitle1' sx={{ pt: 1 }}>
                     onClick event
