@@ -20,3 +20,10 @@ const AutoDestruct: React.FC = () => {
 export default AutoDestruct;
 `;
 
+export const reduceExample: string = `
+const planetExpressRevenue = [150, -23000, 30, -4000];
+
+const totalAnnualNetIncome = planetExpressRevenue.reduce((totalProfits, currentMissionPayment) => {
+    return planetExpressRevenue + currentMissionPayment;
+}, 0);
+`

@@ -6,6 +6,7 @@ import ModalTemplate from '../components/Modal';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { map, filter } from './../data/renderingDataExamples.json'
+import { reduceExample } from '../data/eventHandlingExamples';
 
 const RenderingDataPage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
@@ -59,10 +60,24 @@ const RenderingDataPage: React.FC = () => {
                         variant='extended'
                         size="medium"
                         color='success'
-                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 3 }}
+                        sx={{
+                            width: `${isSmallScreen ? '15vw' : '25vw'}`,
+                            p: 3,
+                            marginBottom: '10px'
+                        }}
                         onClick={() => handleOpen('filter')}
                     >
                         {isSmallScreen ? '.filter()' : 'Learn More About .filter()'}
+                    </Fab>
+                    <br />
+                    <Fab
+                        variant='extended'
+                        size="medium"
+                        color='primary'
+                        sx={{ width: `${isSmallScreen ? '15vw' : '25vw'}`, p: 3 }}
+                        onClick={() => handleOpen('reduce')}
+                    >
+                        {isSmallScreen ? '.reduce()' : 'Learn More About .reduce()'}
                     </Fab>
                 </Box>
             </Box>
@@ -83,6 +98,11 @@ const RenderingDataPage: React.FC = () => {
                     in the UI by filtering items that meet specific criteria. The .filter() method is often combined with
                     the .map() method to dynamically display filtered lists of components, such as search results
                     or filtered lists in tables or menus.
+                </Typography>
+            </ModalTemplate>
+            <ModalTemplate onClose={handleClose} open={isModalOpen === 'reduce'} title=".reduce()">
+                <Typography variant="body1">
+                    This will contain information about the .reduce() method.
                 </Typography>
             </ModalTemplate>
             <Box>
@@ -118,6 +138,12 @@ const RenderingDataPage: React.FC = () => {
             </Typography>
             <SyntaxHighlighter language='jsx' style={materialDark}>
                 {filter.typescriptFilterAndMapExample}
+            </SyntaxHighlighter>
+            <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                .reduce()
+            </Typography>
+            <SyntaxHighlighter language='jsx' style={materialDark}>
+                {reduceExample}
             </SyntaxHighlighter>
         </Box >
     )
