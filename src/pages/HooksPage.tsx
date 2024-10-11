@@ -10,7 +10,7 @@ const HooksPage: React.FC = () => {
             </Typography>
             <ul>
                 <li>useEffect</li>
-                <li>useState</li>
+                <li>useState: allows one to declare state variables inside functional components</li>
                 <li>useLocation</li>
                 <li>useTheme</li>
                 <li>useMediaQuery</li>
@@ -22,6 +22,7 @@ const HooksPage: React.FC = () => {
                 <li>useMemo</li>
             </ul>
             <a href='https://www.skillreactor.io/blog/top-10-most-useful-custom-hooks-in-react/' target='_blank' rel='noreferrer'>Top 10 Most Useful Custom Hooks in React</a>
+            <br />
             <a href='https://daily.dev/blog/react-hooks-explained-simply' target='_blank' rel='noreferrer'>React Hooks Explained Simply</a>
         </Box>
     )
