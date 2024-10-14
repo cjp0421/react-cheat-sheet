@@ -18,13 +18,13 @@ const HomePage: React.FC = () => {
             </Typography>
             <Button onClick={() => navigate('/event-handling')}>Go to Event Handling</Button>
             <Typography variant='h4' gutterBottom sx={{ p: 2 }}>
-                Learn About Hooks!
-            </Typography>
-            <Button onClick={() => navigate('/hooks')}>Go to Hooks</Button>
-            <Typography variant='h4' gutterBottom sx={{ p: 2 }}>
                 Learn About State Management!
             </Typography>
             <Button onClick={() => navigate('/state-management')}>Go to State Management</Button>
+            <Typography variant='h4' gutterBottom sx={{ p: 2 }}>
+                Learn About Hooks!
+            </Typography>
+            <Button onClick={() => navigate('/hooks')}>Go to Hooks</Button>
         </Box>
     )
 }
