@@ -1,4 +1,4 @@
-import { Box, Modal, Typography, IconButton } from '@mui/material';
+import { Box, Modal, IconButton, Card, CardContent, CardHeader } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close'
 
 interface ModalProps {
@@ -15,7 +15,7 @@ const ModalStyles = {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
+    border: '1px solid #808080',
     boxShadow: 24,
     p: 4,
 } as const;
@@ -28,19 +28,26 @@ const ModalTemplate: React.FC<ModalProps> = ({ open, onClose, title, children })
             aria-labeledby="modal-title"
             aria-describedby="modal-description"
         >
-            <Box sx={ModalStyles}>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Card elevation={3}>
+                <Box sx={ModalStyles}>
                     {title && (
-                        <Typography id="modal-title" variant="h6" component="h2">{title}</Typography>
+                        <CardHeader
+                            id="modal-title"
+                            title={title}
+                            action={
+                                <IconButton onClick={onClose}>
+                                    <CloseIcon />
+                                </IconButton>
+                            }
+                        />
                     )}
-                    <IconButton onClick={onClose}>
-                        <CloseIcon />
-                    </IconButton>
+                    <CardContent>
+                        <Box sx={{ mt: 2 }}>
+                            {children}
+                        </Box>
+                    </CardContent>
                 </Box>
-                <Box sx={{ mt: 2 }}>
-                    {children}
-                </Box>
-            </Box>
+            </Card>
         </Modal>
     )
 }
