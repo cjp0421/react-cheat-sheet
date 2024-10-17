@@ -20,11 +20,21 @@ const AutoDestruct: React.FC = () => {
 export default AutoDestruct;
 `;
 
-export const reduceExample: string = `
-const planetExpressRevenue = [150, -23000, 30, -4000];
-
-const totalAnnualNetIncome = planetExpressRevenue.reduce(
-    (totalProfits, currentMissionPayment) => {
-        return planetExpressRevenue + currentMissionPayment;
-}, 0);
-`
+export const eventObjectTypes: { mouseEvent: string; keyboardEvent: string; changeEvent: string; formSubmitEvent: string; } = {
+    mouseEvent: `// Mouse Event
+const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    // logic to execute when a button is clicked
+};`,
+    keyboardEvent: `// Keyboard Event
+const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    // logic to execute a key is pressed
+}`,
+    changeEvent: `// Change Event
+const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+   // logic to execute when the value in an input field changes
+}`,
+    formSubmitEvent: `// Form Submit Event
+const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    // logic to execute when a form is submitted
+}`
+}
