@@ -6,7 +6,6 @@ import ModalTemplate from '../components/Modal';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { map, filter, reduce } from './../data/renderingDataExamples.json'
-// import { reduceExample } from '../data/eventHandlingExamples';
 
 const RenderingDataPage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
@@ -33,7 +32,7 @@ const RenderingDataPage: React.FC = () => {
                 <>
                     <Box>
                         <Typography variant='subtitle1' sx={{ pt: 1 }} >
-                            .map()
+                            .map()  - Basic Example
                         </Typography>
                         <SyntaxHighlighter language="jsx" style={materialDark}>
                             {map.simpleExample}
@@ -41,7 +40,7 @@ const RenderingDataPage: React.FC = () => {
                     </Box>
                     <Box>
                         <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                            .map() in a component with TypeScript
+                            .map() - TypeScript Example
                         </Typography>
                         <SyntaxHighlighter language="jsx" style={materialDark}>
                             {map.simpleAndTypeScriptExample}
@@ -71,6 +70,12 @@ const RenderingDataPage: React.FC = () => {
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {reduce.simpleExample}
                     </SyntaxHighlighter>
+                    <Typography variant='subtitle1' >
+                        .reduce() with TypeScript in a Component
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {reduce.reduceTypeScriptComponentExample}
+                    </SyntaxHighlighter>
                 </>
             )
         }
@@ -78,7 +83,7 @@ const RenderingDataPage: React.FC = () => {
             return (
                 <>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                        .map() - Simple Example
+                        .map() - Basic Example
                     </Typography>
                     <SyntaxHighlighter language="jsx" style={materialDark}>
                         {map.simpleExample}
@@ -123,10 +128,16 @@ const RenderingDataPage: React.FC = () => {
             return (
                 <>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                        .reduce() - Example
+                        .reduce() - Basic Example
                     </Typography>
                     <SyntaxHighlighter language="jsx" style={materialDark}>
                         {reduce.simpleExample}
+                    </SyntaxHighlighter>
+                    <Typography variant='subtitle1' >
+                        .reduce() with TypeScript in a Component
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {reduce.reduceTypeScriptComponentExample}
                     </SyntaxHighlighter>
                 </>
             );

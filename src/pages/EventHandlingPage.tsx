@@ -201,7 +201,11 @@ const EventHandlingPage: React.FC = () => {
                 the properties on the event object then it does not need to be passed in as a parameter to your event handler.
             </ModalTemplate>
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'onClick'} title='onClick'>
-                More about onClick
+                The onClick property in React is an event handler that identifies a function to run when a user clicks on an element,
+                such as a button or a link. The onClick property should contain a reference to a function, but it should not directly
+                invoke the function. This means you should not include the parentheses when assigning the function to onClick. If additional
+                arguments need to be passed to the function when using onClick, the function should be wrapped in a callback. The function
+                passed to the onClick property automatically receives the event object as an argument.
             </ModalTemplate>
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'onChange'} title='onChange'>
                 More about onChange
