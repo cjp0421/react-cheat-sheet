@@ -5,8 +5,8 @@ import ModalTemplate from '../components/Modal';
 // import CustomDropdown from '../components/CustomDropdown'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import { map, filter } from './../data/renderingDataExamples.json'
-import { reduceExample } from '../data/eventHandlingExamples';
+import { map, filter, reduce } from './../data/renderingDataExamples.json'
+// import { reduceExample } from '../data/eventHandlingExamples';
 
 const RenderingDataPage: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState<string | null>(null);
@@ -69,7 +69,7 @@ const RenderingDataPage: React.FC = () => {
                         .reduce()
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
-                        {reduceExample}
+                        {reduce.simpleExample}
                     </SyntaxHighlighter>
                 </>
             )
@@ -126,7 +126,7 @@ const RenderingDataPage: React.FC = () => {
                         .reduce() - Example
                     </Typography>
                     <SyntaxHighlighter language="jsx" style={materialDark}>
-                        {reduceExample}
+                        {reduce.simpleExample}
                     </SyntaxHighlighter>
                 </>
             );

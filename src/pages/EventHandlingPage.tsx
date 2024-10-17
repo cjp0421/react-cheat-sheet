@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import ModalTemplate from './../components/Modal'
 // import CustomDropdown from '../components/CustomDropdown'
-import { simpleOnClickExample, onClickExampleWithHandlerTypeScript } from './../data/eventHandlingExamples';
+import { simpleOnClickExample, onClickExampleWithHandlerTypeScript, eventObjectTypes } from './../data/eventHandlingExamples';
 import { useState } from 'react';
 
 const EventHandlingPage: React.FC = () => {
@@ -42,6 +42,21 @@ const EventHandlingPage: React.FC = () => {
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {onClickExampleWithHandlerTypeScript.trim()}
                     </SyntaxHighlighter>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        Event Object Types
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.changeEvent}
+                    </SyntaxHighlighter>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.formSubmitEvent}
+                    </SyntaxHighlighter>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.keyboardEvent}
+                    </SyntaxHighlighter>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.mouseEvent}
+                    </SyntaxHighlighter>
                 </>
             );
         }
@@ -50,13 +65,13 @@ const EventHandlingPage: React.FC = () => {
             return (
                 <>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                        onClick event
+                        onClick Event
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {simpleOnClickExample.trim()}
                     </SyntaxHighlighter>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                        onClick with handler and Typescript in a component
+                        onClick with Handler and Typescript in a component
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {onClickExampleWithHandlerTypeScript.trim()}
@@ -68,6 +83,28 @@ const EventHandlingPage: React.FC = () => {
         if (selectedCategory === 'onChange') {
             return (
                 <></>
+            )
+        }
+
+        if (selectedCategory === 'eventObjectTypes') {
+            return (
+                <>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        Event Object Types
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.changeEvent}
+                    </SyntaxHighlighter>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.formSubmitEvent}
+                    </SyntaxHighlighter>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.keyboardEvent}
+                    </SyntaxHighlighter>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {eventObjectTypes.mouseEvent}
+                    </SyntaxHighlighter>
+                </>
             )
         }
 
@@ -107,6 +144,7 @@ const EventHandlingPage: React.FC = () => {
                         <MenuItem value="all">All Examples</MenuItem>
                         <MenuItem value="onClick">onClick()</MenuItem>
                         <MenuItem value='onChange'>onChange()</MenuItem>
+                        <MenuItem value='eventObjectTypes'>Event Object Types</MenuItem>
                     </Select>
                 </FormControl>
                 <Box sx={{ display: 'block' }}>
@@ -155,9 +193,12 @@ const EventHandlingPage: React.FC = () => {
             </Box>
 
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'eventObject'} title='The Event Object'>
-                More about the event object:
-                If your function doesn't need to access the properties on the event object then you
-                don't need to pass the event object as a parameter to your event handler.
+                The event object is a special object in React that contains information about a user or system triggered
+                event. Events include user actions such as clicks, key presses, or typing in an input field and system- or
+                programmatically-triggered events. Non-user-triggered events include simulated events, load, error, or focus events,
+                and timers and asynchronous operations. The event object allows the programmer to use details about the event, such as
+                accessing the element that was clicked or getting the value from an input field. If a function doesn't need to access
+                the properties on the event object then it does not need to be passed in as a parameter to your event handler.
             </ModalTemplate>
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'onClick'} title='onClick'>
                 More about onClick
