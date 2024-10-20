@@ -208,7 +208,11 @@ const EventHandlingPage: React.FC = () => {
                 passed to the onClick property automatically receives the event object as an argument.
             </ModalTemplate>
             <ModalTemplate onClose={handleClose} open={isModalOpen === 'onChange'} title='onChange'>
-                More about onChange
+                The onChange property in React is an event handler that is used to track changes in input elements, such as text fields, checkboxes,
+                or dropdowns. It runs a function whenever the value in the input field changes. This event handler captures what a user is typing or
+                selecting and updates the component's state based on the changes. To use the onChange property, pass a function to it that handles what
+                happens when the user interacts with the field. Like with the onClick property, the event object is automatically passed to the
+                function as an argument. If additional arguments need to be passed to the function when using onChange, the function should be wrapped in a callback.
             </ModalTemplate>
             <Box sx={{ width: '100%' }}>
                 {renderSelectedExamples()}
