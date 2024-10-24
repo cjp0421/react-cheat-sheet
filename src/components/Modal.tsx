@@ -1,4 +1,4 @@
-import { Box, Modal, IconButton, Card, CardContent, CardHeader } from '@mui/material';
+import { Box, Modal, IconButton, Card, CardContent, CardHeader, Divider } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close'
 
 interface ModalProps {
@@ -30,17 +30,22 @@ const ModalTemplate: React.FC<ModalProps> = ({ open, onClose, title, children })
         >
             <Card elevation={3}>
                 <Box sx={ModalStyles}>
-                    {title && (
-                        <CardHeader
-                            id="modal-title"
-                            title={title}
-                            action={
-                                <IconButton onClick={onClose}>
-                                    <CloseIcon />
-                                </IconButton>
-                            }
-                        />
-                    )}
+                    {
+                        title && (
+                            <>
+                                <CardHeader
+                                    id="modal-title"
+                                    title={title}
+                                    action={
+                                        <IconButton onClick={onClose}>
+                                            <CloseIcon />
+                                        </IconButton>
+                                    }
+
+                                />
+                                <Divider sx={{ borderColor: '#ccc' }} />
+                            </>
+                        )}
                     <CardContent>
                         <Box sx={{ mt: 2 }}>
                             {children}
