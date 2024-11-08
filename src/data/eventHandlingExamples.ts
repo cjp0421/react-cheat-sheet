@@ -60,8 +60,117 @@ const InputComponent = () = {
                 value={complaint}
                 onChange={handleChange}
                 placeholder='Awaiting Grievances and Gripes...'
+                />
+            <p>Current Complaint: {complaint}</p>
         </div>
     )
-
 }
+
+export default InputComponent
+`
+
+export const complexOnChangeWithHandlerStateAndTypeScript: string = `
+import React, { useState } from 'react';
+
+type FormFields = {
+  name: string;
+  age: string;
+  email: string;
+  phone: string;
+  agreeToTerms: boolean;
+}
+
+const ComplexForm: React.FC = () => {
+    const [formData, setFormData] = useState<FormFields>({
+      name: '',
+      age:'',
+      email: '',
+      phone: '',
+      agreeToTerms: false,
+    });
+
+// Partial is a TypeScript utility type that, when applied to a type, makes all properties
+// of that type optional. Partial allos each field to be undefined, so starting with the 
+// initial state set to be an empty object is valid.
+    
+    const [errors, setErrors] = useState<Partial<FormFields>>({});
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value, type, checked } = event.target;
+      
+      const updatedValue = type === 'checkbox' ? checked : value;
+
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: updateValue,
+      }));
+
+      if (name === 'age' && isNan(Number(value))) {
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [name]: '',
+        }));
+      }
+
+      if (name === 'email' && !value.includes('@')) {
+        setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: 'Please enter a valid email address',
+        }));
+      }
+    };
+
+    return (
+        <form>
+          <div>
+            <label>Name:</label>
+            <input
+              type='text'
+              name='name'
+              value={formData.name}
+              onChange={handleChange}
+            />
+            {errors.name && <span>{errors.name}</span>}
+          </div>
+
+          <div>
+            <label>Age:</label>
+            <input
+              type='text'
+              name='age'
+              value={formData.age}
+              onChange={handleChange}
+            />
+            {errors.age && <span>{errors.email}</span>}
+          </div>
+
+          <div>
+            <label>Phone:</label>
+            <input
+              type='tel'
+              name='phone'
+              value={formData.phone}
+              onChange={handleChange}
+            />
+            {errors.phone && <span>{errors.phone}</span>}
+          </div>
+
+          <div>
+            <label>
+              <input
+                type='checkbox'
+                name='agreeToTerms'
+                checked={formData.agreeToTerms}
+                onChange={handleChange}
+              />
+              I agree to the terms and conditions.
+            </label>
+          </div>
+
+          <button type='submit'>Submit</button>
+        </form>
+    );
+};
+
+export default ComplexForm;
 `

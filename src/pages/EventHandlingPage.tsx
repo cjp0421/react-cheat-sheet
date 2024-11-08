@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import ModalTemplate from './../components/Modal'
 // import CustomDropdown from '../components/CustomDropdown'
-import { simpleOnClickExample, onClickExampleWithHandlerTypeScript, eventObjectTypes, simpleOnChangeExample, onChangeWithHandlerAndState } from './../data/eventHandlingExamples';
+import { simpleOnClickExample, onClickExampleWithHandlerTypeScript, eventObjectTypes, simpleOnChangeExample, onChangeWithHandlerAndState, complexOnChangeWithHandlerStateAndTypeScript } from './../data/eventHandlingExamples';
 import { useState } from 'react';
 
 const EventHandlingPage: React.FC = () => {
@@ -53,6 +53,12 @@ const EventHandlingPage: React.FC = () => {
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {onChangeWithHandlerAndState.trim()}
+                    </SyntaxHighlighter>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        complex onChange Event in a component with event handler and TypeScript inside a form element
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {complexOnChangeWithHandlerStateAndTypeScript.trim()}
                     </SyntaxHighlighter>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
                         Event Object Types
@@ -106,6 +112,12 @@ const EventHandlingPage: React.FC = () => {
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {onChangeWithHandlerAndState.trim()}
+                    </SyntaxHighlighter>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        complex onChange Event in a component with event handler and TypeScript inside a form element
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {complexOnChangeWithHandlerStateAndTypeScript.trim()}
                     </SyntaxHighlighter>
                 </>
             )
