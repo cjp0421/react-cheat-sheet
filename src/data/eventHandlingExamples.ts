@@ -38,3 +38,30 @@ const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     // logic to execute when a form is submitted
 }`
 }
+
+export const simpleOnChangeExample: string = `
+<input onChange={(event) => console.log(event.target.value)} placeholder='Enter Auto-Desctruct Code' />
+`
+
+export const onChangeWithHandlerAndState: string = `
+import React, { useState } from 'react;
+
+const InputComponent = () = {
+    const [complaint, setComplaintValue] = useState('');
+
+    const handleChange = (event) = {
+    setComplaintValue(event.target.value);
+    };
+
+    return (
+        <div>
+            <input
+                type="text"
+                value={complaint}
+                onChange={handleChange}
+                placeholder='Awaiting Grievances and Gripes...'
+        </div>
+    )
+
+}
+`

@@ -3,7 +3,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { materialDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import ModalTemplate from './../components/Modal'
 // import CustomDropdown from '../components/CustomDropdown'
-import { simpleOnClickExample, onClickExampleWithHandlerTypeScript, eventObjectTypes } from './../data/eventHandlingExamples';
+import { simpleOnClickExample, onClickExampleWithHandlerTypeScript, eventObjectTypes, simpleOnChangeExample, onChangeWithHandlerAndState } from './../data/eventHandlingExamples';
 import { useState } from 'react';
 
 const EventHandlingPage: React.FC = () => {
@@ -31,7 +31,7 @@ const EventHandlingPage: React.FC = () => {
             return (
                 <>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                        onClick event
+                        onClick Event - Simple
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {simpleOnClickExample.trim()}
@@ -41,6 +41,18 @@ const EventHandlingPage: React.FC = () => {
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {onClickExampleWithHandlerTypeScript.trim()}
+                    </SyntaxHighlighter>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        onChange Event - Simple
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {simpleOnChangeExample.trim()}
+                    </SyntaxHighlighter>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        onChange Event in a component with event handler
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {onChangeWithHandlerAndState.trim()}
                     </SyntaxHighlighter>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
                         Event Object Types
@@ -65,7 +77,7 @@ const EventHandlingPage: React.FC = () => {
             return (
                 <>
                     <Typography variant='subtitle1' sx={{ pt: 1 }}>
-                        onClick Event
+                        onClick Event - Simple
                     </Typography>
                     <SyntaxHighlighter language='jsx' style={materialDark}>
                         {simpleOnClickExample.trim()}
@@ -82,7 +94,20 @@ const EventHandlingPage: React.FC = () => {
 
         if (selectedCategory === 'onChange') {
             return (
-                <></>
+                <>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        onChange Event - Simple
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {simpleOnChangeExample.trim()}
+                    </SyntaxHighlighter>
+                    <Typography variant='subtitle1' sx={{ pt: 1 }}>
+                        onChange Event in a component with event handler
+                    </Typography>
+                    <SyntaxHighlighter language='jsx' style={materialDark}>
+                        {onChangeWithHandlerAndState.trim()}
+                    </SyntaxHighlighter>
+                </>
             )
         }
 
